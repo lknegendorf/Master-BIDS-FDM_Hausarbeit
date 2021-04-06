@@ -10,7 +10,10 @@
 \usepackage{ccicons}
 \bibliographystyle{biolett}
 
+\usepackage{orcidlink}
+
 \author{Leonard Knegendorf}
+% ORCID of the author: https://orcid.org/0000-0001-8469-1248
 \title{FAIRE Publikation eines Beispieldatensatzes}
 
 \begin{document}
@@ -27,8 +30,8 @@
 		
 		\vfill
 		vorgelegt von\par
-		\textbf{Leonard Knegendorf}\par
-		Hildesheim 2021\par
+		\textbf{Leonard Knegendorf~\orcidlink{0000-0001-8469-1248}}\par
+		Hildesheim 2021
 	\end{titlepage}
 
 	
@@ -40,8 +43,8 @@
 	\ccbysa \bigskip\par\noindent
 	\small{FAIRE Publikation eines Datensatzes von Leonard Knegendorf ist lizenziert unter einer \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International Lizenz}.\bigskip\bigskip\par\noindent
 	Beruht auf dem Datensatz:\par
-	\noindent Walonoski~J, Klaus~S, Granger~E, Hall~D, Gregorowicz~A, Neyapally~G, Watson~A, Eastman~J. 2020 Sythea\texttrademark Novel coronavirus (COVID-19) model an synthetic data set.
-	\newblock \emph{Intelligence-Based Medicine}~\textbf{1}, 1:100007. \newblock (\doi{10.1016/j.ibmed.2020.100007}).\par\medskip
+	\noindent Walonoski~J, Klaus~S, Granger~E, Hall~D, Gregorowicz~A, Neyapally~G, Watson~A, Eastman~J. 2020 Sythea\texttrademark~Novel coronavirus (COVID-19) model an synthetic data set.
+	\newblock \emph{Intelligence-Based Medicine}~\textbf{1}, 1:100007. \newblock (\doi{10.1016/j.ibmed.2020.100007}).~\cite{10.1016/j.ibmed.2020.100007}\par\medskip
 	Download unter:
 	\url{https://storage.googleapis.com/synthea-public/10k_synthea_covid19_csv.zip}.}
 	\end{tabular}
@@ -54,17 +57,45 @@
 	\clearpage
 	
 	\chapter{Einleitung}
-	(Text zur Beschreibung des Beispielszenarios und des Datensatzes, muss noch eingefügt werden.)\par
+	Das Ziel dieser Hausarbeit ist die Dokumentation des Prozesses zur "FAIRen Publikation" eines COVID--19 Beispieldatensatzes. Mit einer "FAIRen Publikation" ist im Zusammenhang dieser Arbeit eine nachhaltige und offene Publikation anhand der FAIR-Kriterien gemeint, welche 2016 durch Wilkinson \textit{et al.}~\cite{10.1038/sdata.2016.18} publiziert wurden und seitdem eine breite Anwendung im Feld des Datenmangements und zu einem der wichtigsten Standards geworden sind~\cite{10.1016/j.cels.2019.09.011}. \par
+	Die FAIRe Publikation erfolgt anhand eines Beispielszenarios. Dieses beschreibt ein Forschungsvorhaben zur Untersuchung der Wirkung unterschiedlicher Medikationen auf die Behandlung von COVID-19 Patienten. Die Daten zu dieser Analyse entstammen drei Einzelstudien. Es sollen insbesondere Abhängigkeiten des Geschlechts und der Ethnie auf die Wirkung der Medikationen geprüft werden. Der Datensatz, der für diese Hausarbeit genutzt wird, basiert auf dem synthetischen COVID-19 Datensatz von Walonoski \textit{et al.}~\cite{10.1016/j.ibmed.2020.100007}, der mithilfe des Synthea Patientendatengenerators~\cite{10.1093/jamia/ocx079} erzeugt wurde. 
 	Als erster Schritt, vor Beginn der Erstellung der eigentlichen Hausarbeit und der Bearbeitung des Datensatzes, erfolgte die Festlegung der Lizensierung. Die Wahl der Lizenz für die vorliegende Hausarbeit erfolgte mithilfe des \href{https://creativecommons.org/choose/}{Creative Commons License Chooser}. Anschließend wurde die System-Umgebung zur Dokumentation eingerichtet welche im Folgenden näher erläutert wird.
 				
 		\section{Beschreibung der System-Umgebung}
 		Zu Beginn des Projektes wurde Wert auf die Einrichtung einer definierten System-Umgebung gelegt, in der die Bearbeitung des Datensatzes erfolgen kann.
-		Die Versionskontrolle des bearbeiteten Datensatzes selbst erfolgt gemäß der Aufgabenstellung in einer FAIRDOMHub Sandbox. Bei FAIRDOMHub handelt es sich um ein Repositorium und eine Co-Working-Plattform die für Forschungsprojekte im Bereich der Systembiologie entwickelt wurde~\cite{10.1093/nar/gkw1032}.\par  
-		Die Texdokumentation der Bearbeitungsschritte erfolgt in einem \LaTeX{}-Dokument. Hierzu wurde zunächst ein GitHub-Repositorium erstellt, mithilfe dessen eine automatisierte Versionskontrolle der Projektdokumentation erfolgen kann (\url{https://github.com/lknegendorf/Master-BIDS-FDM_Hausarbeit}). Die Gliederung des Projektdokumentation gemäß der Aufgabenstellung wurde als erste Version der Textdokumentation in das Repositorium geladen. Darüber hinaus wurde eine tabellarische Übersicht der Dateistruktur und der Versionierung des GitHub-Repositoriums in dessen Wiki erstellt (\url{https://github.com/lknegendorf/Master-BIDS-FDM_Hausarbeit/wiki/%C3%9Cbersicht-%C3%BCber-Dateistruktur-und-Versionierung}).  
+		Die Versionskontrolle des bearbeiteten Datensatzes selbst erfolgt gemäß der Aufgabenstellung in einer FAIRDOMHub Sandbox. Bei FAIRDOMHub handelt es sich um ein Repositorium und eine Co-Working-Plattform die für Forschungsprojekte im Bereich der Systembiologie entwickelt wurde~\cite{10.1093/nar/gkw1032}. Der Datensatz wird im FAIRDOMHub in ein ISA Framework eingebettet, wie es im Grundsatz von Sansone \textit{et al.} vorgeschlagen wurde~\cite{10.1038/ng.1054}. Der Aufbau des ISA Frameworks erfolgt hierbei analog zum Framework, das durch Dagmar Waltemath und Sarah Braun für die Aufgabenstellung angelegt worden ist (\url{https://sandbox12.fairdomhub.org/investigations/12}). In der Benennung wird dem vorgegebenen Namen je ein Unterstrich und die Initialen LK angehängt, um das Framework nicht ausschließlich durch die SEEK ID von dem der Aufgabenstellung unterscheiden zu können. Die erste Version des Datensatzes wird durch eine Kopie des Datensatzes aus der Aufgabenstellung erzeugt, diese wird mit \textsf{Hausarbeit\_Datensatz\_COVID19\_LK\_v0.xlsx} benannt.\par  
+		Die Texdokumentation der Bearbeitungsschritte erfolgt in einem \LaTeX{}-Dokument. Hierzu wurde zunächst ein GitHub-Repositorium erstellt, mithilfe dessen eine automatisierte Versionskontrolle der Projektdokumentation erfolgen kann (\url{https://github.com/lknegendorf/Master-BIDS-FDM_Hausarbeit}). Die Gliederung der Projektdokumentation gemäß der Aufgabenstellung wurde als erste Version der Textdokumentation in das Repositorium geladen. Darüber hinaus wurde eine tabellarische Übersicht der Dateistruktur und der Versionierung des GitHub-Repositoriums in dessen Wiki erstellt (\url{https://github.com/lknegendorf/Master-BIDS-FDM_Hausarbeit/wiki/%C3%9Cbersicht-%C3%BCber-Dateistruktur-und-Versionierung}).  
 		
 	\chapter{Bearbeitung der Aufgabenstellung}
 		
 		\section*{1. FAIR-Kriterien}
+		Im Folgenden soll der Datensatz kriterienorientiert auf seine FAIRness überprüft werden. Dies geschieht anhand eines Handouts von Angelina Kraft (Technische Informationsbibliothek, Hannover), welches unter einer CC-BY 4.0 Lizenz \href{https://blogs.tib.eu/wp/tib/wp-content/uploads/sites/3/2017/09/Die-FAIR-Data-Prinzipien.pdf}{online} verfügbar ist. Hierzu wird aus jeder Gruppe ein FAIR-Kriterium beurteilt.\par
+		\begin{description}
+			\item F4. Metadaten enthalten klar und eindeutig den Identifier, der die Daten referenziert \\
+			
+			Damit die Metadaten eines Datensatzes diesen eindeutig beschreiben können, ist es wichtig, dass die Metadaten den Datensatz über einen eindeutigen Identifizierer referenzieren. In der Version V0 des Datensatzes fungieren lediglich die Projekt- und Datensatzbeschreibung der Aufgabenstellung als Metadaten für den Datensatz. Diese referenzieren Einen Link zu einer Investigation im FAIRDOMHub, welche den Datensatz enthält. Somit besteht eine Referenz auf die Daten, allerdings ist diese nicht eindeutig. Mindestens müsste die Version des Datensatzes, sowie eine Checksumme angegeben sein, die eine Identifikation des Datensatzes ermöglichen. Besser noch wäre es, wenn dem Datensatz ein weltweit eindeutiger persistenter Identifier wie z.B. ein DOI zugeordnet wäre, der in den Metadaten referenziert wird.
+			Im FAIRDOMHub ist eine Erstellung eines DOIs durch die Snapshot-Funktion innerhalb einer Investigation möglich. Außerdem erlauben eine Reihe von anderen Repositorien das Zuordnen eines DOIs. In dieser Hausarbeit wird während der laufenden Bearbeitung des Datensatzes die Referenzierung über den Link auf die Investigation im FAIRDOMHub unter Angabe der Versionsnummer und einer Checksumme gewählt, damit innerhalb der Versionierung keine neuen DOIs erzeugt werden müssen. Nach Abschluss der Bearbeitung wird ein DOI erzeugt, damit die Metadaten diesen eindeutig referenzieren können.\par
+			Vom aktuellen Datensatz werden mithilfe des Windows-Kommandozeilenprogramms CertUtil.exe die MD5- und SHA256-Hashsum berechnet. Diese werden sowohl in der Beschreibung des Datensatzes im FAIRDOMHub angegeben als auch im Wiki des GitHub-Repositorium dokumentiert.
+			Für Version v0 des Datensatzes beispielsweise wird für die weitere Bearbeitung folgende Referenzierung genutzt:\par
+			\textsf{Hausarbeit\_Datensatz\_COVID19\_LK\_v0.xlsx,  \url{https://sandbox12.fairdomhub.org/data_files/54?version=1}, Checksummen: cefdf1ee2e3f187d6e0ecdf630b7048c~(MD5), 291b42e63040ef1ccc19dc3a6927e7012b22f548aaa95b40de15788db4741071~(SHA256)}  
+			\item A1.1 Das Protokoll ist offen, frei und universell implementierbar \\
+			
+			Damit Datensatz und Metadaten zugänglich sind, muss der Zugriff über ein standardisiertes Protokoll erfolgen, das offen, frei und universell implementierbar ist.
+			Der Zugriff auf den Datensatz erfolgt über das HTTPS-Protokoll, welches ein offenes, standardisiertes Protokoll ist. Dieses Kriterium ist somit erfüllt.
+			\item I1. (Meta)-Daten nutzen eine formale, zugängliche, gemeinsam genutzte und breit anwendbare Sprache für die Wissensrepräsentation \\
+			
+			Die Nutzung einer eindeutigen Sprache ist elementar für die Nachnutzbarkeit von Daten. Der Datensatz erhält bisher nur teilweise formale, breit anwendbare Sprache. Beispielsweise enthält die Spalte CODE des Bereichs Observations im Datensatz teilweise LOINC-Codes. Diese werden allerdings nicht auf LOINC referenziert, außerdem sind auch andere Daten enthalten, bei denen es sich nicht um LOINC-Codes handelt. Die Spalte CODE des Bereichs Conditions enthält SNOMED CT-Codes, auch hier wird allerdings nicht auf SNOMED CT referenziert. Andere Spalten wiederum enthalten noch keine definierten Terme.\par
+			Um dieses Kriterium zu verbessern, werden enthaltene Variablen auf definierte Terme in formalen Sprachen gemappt. Dieses Mapping geschieht mithilfe der Filter-Funktion in Microsoft Excel und der Übersetzung der Werte in neu erstellten Mapping-Tabellen. Die Mapping-Tabellen werden im GitHub-Wiki dokumentiert. Anschließend erfolgt die Umbenennung der Spalten gemäß der Mapping-Tabelle, sodass die Spaltenbenennung auf formalisierte Sprache zurückgreift. Der Datensatz mit geänderten Spaltenbezeichnungen wird unter dem Dateinamen \textsf{Hausarbeit\_Datensatz\_COVID19\_LK\_v0.5.xlsx} abgespeichert und in den FAIRDOMHub geladen. Danach erfolgt die Erstellung eines Python-Skripts, welches die Änderung bestimmter Spaltenwerte gemäß der Mapping-Tabellen übernimmt. Die Spalte CODE des Bereichs Observations wird aufgeteilt, sodass es eine eigene Spalte für LOINC-Werte und eine für solche Werte, die sich nicht auf LOINC-Terme mappen lässt, entsteht.
+			Das Python-Skript greift auf den zuvor abgespeicherten Datensatz zu, ändert diesen ab und speichert ihn unter dem Namen \textsf{Hausarbeit\_Datensatz\_COVID19\_LK\_v1.xlsx}.
+			\item R1.1. (Meta)Daten enthalten eine eindeutige, zugreifbare Angabe einer Nutzungslizenz \\
+			
+			Es existiert keine eindeutige, maschinenlesbare Angabe einer Nutzungslizenz der Daten und der Metadaten in der Aufgabenstellung. Im FAIRDOMHub ist dem Datensatz eine offene Lizenz zugeordnet, die jedoch nicht weiter spezifiziert ist.\par
+			Die Verbesserung dieses Kriteriums ist durch die Wahl einer CC-BY SA 4.0 Lizenz für diese Hausarbeit und das assoziierte GitHub-Repositorium bereits vorbereitet worden. Die Lizenz ist sowohl im GitHub in maschinenlesbarer Form abgelegt, als auch zu Beginn dieser Textdatei in menschenlesbarer Form inkludiert.
+			Im FAIRDOMHub wurde für die erste Datensatzversion dieselbe Lizenz ausgewählt, sodass diese dort bereits dem Datensatz zugeordnet ist. 
+		\end{description}
+		Nach Beendingung der hier beschriebenen Bearbeitungen wird der Datensatz mit dem Dateinamen in den FAIRDOMHub geladen. Hierbei handelt es sich um folgenden Datensatz:\par
+		\textsf{Hausarbeit\_Datensatz\_COVID19\_LK\_v1.xlsx,  \url{https://sandbox12.fairdomhub.org/data_files/54?version=3}, Checksummen: 2c1c5733e40f5e6c624c127b6ad4c106~(MD5), 49e510fe4839255cb62796cc24d87475421426306f60317f09832e26a65b56d9~(SHA256)} 
+		 
 	
 		\section*{2. Datenqualität}
 	
