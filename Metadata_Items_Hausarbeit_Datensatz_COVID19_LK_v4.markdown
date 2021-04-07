@@ -1,4 +1,4 @@
-## Metadaten-Schema der Datenitems für folgenden Datensatz: [`Hausarbeit\_Datensatz\_COVID19\_LK\_v4.xlsx`](https://sandbox12.fairdomhub.org/data_files/54?version=7)
+## Metadaten-Schema der Datenitems für folgenden Datensatz: [`10.5281/zenodo.4668732`](https://doi.org/10.5281/zenodo.4668732)
 ### Checksummen: 58a5774f7a753e03c8537ea1cd7b89b5 (MD5), c7e7489ffd4eb73dc1c50f5e724b752adf174010f8188139349d1ef4fa801f64 (SHA256)
 ### Metadaten erstellt von: [Leonard Knegendorf](https://orcid.org/0000-0001-8469-1248)
 ### Metadaten erstellt am: 2021-04-07
