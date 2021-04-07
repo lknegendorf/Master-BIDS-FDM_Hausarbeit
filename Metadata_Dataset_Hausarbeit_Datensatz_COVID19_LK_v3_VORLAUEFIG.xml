@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+  <identifier identifierType="DOI"></identifier>
+  <creators>
+	<creator>
+		<creatorName nameType="Personal">Waltemath, Dagmar</creatorName>
+		<givenName>Dagmar</givenName>
+		<familyName>Waltemath</familyName>
+	</creator>
+	<creator>
+		<creatorName nameType="Personal">Braun, Sarah</creatorName>
+		<givenName>Sarah</givenName>
+		<familyName>Braun</familyName>
+	</creator>
+	<creator>
+		<creatorName nameType="Personal">Knegendorf, Leonard</creatorName>
+		<givenName>Leonard</givenName>
+		<familyName>Knegendorf</familyName>
+	</creator>
+</creators>
+<titles>
+<title xml:lang="de">Hausarbeit_Datensatz_COVID19_LK</title>
+</titles>
+<publisher xml:lang="en">FAIRDOMHub</publisher>
+<publicationYear>2021</publicationYear>
+<language>de</language>
+<resourceType resourceTypeGeneral="Dataset">Dataset</resourceType>
+<descriptions>
+<description xml:lang="de" descriptionType="Abstract">Der Datensatz entstand im Rahmen einer Studie, die den Krankheitsverlauf von COVID-19 nach Gabe verschiedener Medikationen untersucht, genauer inwiefern die Wirksamkeit von COVID-Medikationen durch Geschlecht oder Ethnie beeinflusst wird. Hierzu wurden Daten aus 3 vorherigen COVID-Studien aggregiert und analysiert.</description>
+</descriptions>
+<rightsList>
+  <rights rightsURI="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</rights>
+</rightsList>
+</resource>
