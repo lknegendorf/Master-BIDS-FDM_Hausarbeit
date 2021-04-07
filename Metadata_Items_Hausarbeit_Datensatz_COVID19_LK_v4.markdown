@@ -1,5 +1,5 @@
-## Metadaten-Schema der Datenitems für folgenden Datensatz: [`Hausarbeit\_Datensatz\_COVID19\_LK\_v3.xlsx`](https://sandbox12.fairdomhub.org/data_files/54?version=6)
-### Checksummen: 999e95d52bb9a7d59b1e0ae4a331e917 (MD5), 4382cc970686895bfe64a729520115027220960c1981da64fd7e99c309948a9b (SHA256)
+## Metadaten-Schema der Datenitems für folgenden Datensatz: [`Hausarbeit\_Datensatz\_COVID19\_LK\_v4.xlsx`](https://sandbox12.fairdomhub.org/data_files/54?version=7)
+### Checksummen: 58a5774f7a753e03c8537ea1cd7b89b5 (MD5), c7e7489ffd4eb73dc1c50f5e724b752adf174010f8188139349d1ef4fa801f64 (SHA256)
 ### Metadaten erstellt von: [Leonard Knegendorf](https://orcid.org/0000-0001-8469-1248)
 ### Metadaten erstellt am: 2021-04-07
 
@@ -13,7 +13,6 @@ SCTID:365873007 Gender finding (finding) | SCTID:365873007 | SCTID
 SCTID:169812000 Place of birth (observable entity) | SCTID:169812000 | `<CityName:string>~~<StateName:string>~~<countryCode:ISO 3166-1 alpha-2>` | Das Symbol ~ steht im eigenen Datentyp-Schema für ein Leerzeichen, mit < und > werden unterschiedliche Teile des Datentyps begrenzt.
 Observation Date (SCTID: 410672004 Date property (qualifier value)) | SCTID:410672004 | ISO 8601 | Date property of LOINC VALUE
 SCTID:410672004 Date property (qualifier value) | SCTID:410672004 | ISO 8601
-PATIENT | - | - | findet keine Beachtung in der Bearbeitung
 LOINC CODE | LOINC CODE | LOINC CODE
 SCTID:273249006 Assessment scales (assessment scale) | SCTID:273249006 | SCTID
 LOINC LONG COMMON NAME | LOINC LONG COMMON NAME | string
